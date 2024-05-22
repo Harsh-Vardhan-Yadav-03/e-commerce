@@ -1,0 +1,19 @@
+.slide-hidden{
+    display: none;
+}
+
+.indicator{
+    background-color: white;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 100%; 
+    border: none; 
+    outline: none; 
+    margin: 0 0.2rem;
+    box-shadow: 0px 0px 5px #555; 
+    cursor: pointer;
+}
+
+.indicator-inactive{
+    background-color: grey;
+}

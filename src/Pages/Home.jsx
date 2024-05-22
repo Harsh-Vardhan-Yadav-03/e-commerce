@@ -4,7 +4,6 @@ import shoes from './shoes.png'
 import Shoes2 from './Shoes2.png'
 import shirt from './shirt.png'
 import shirt2 from './shirt2.jpeg'
-import banner2 from './banner2.jpg'
 import { Carousel } from "../components/Carousel";
 import { slides } from"../data/carouselData.json"; 
 
