@@ -1,26 +1,49 @@
-import React,{useState} from 'react'
-import  "./Carousel.css";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
+import React, { useState } from "react";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+
+import "./Carousel.css";
+
 export const Carousel = ({ data }) => {
-    const {slide,setSlide} =  useState(0);
-    const nextSlide = ()=> {
-        setSlide(slide === data.length - 1 ? 0 : slide + 1);
-    }
-    const prevSlide = ()=> {
-        setSlide(slide === 0 ? data.lenght - 1 : slide - 1);
-    }
+  const [slide, setSlide] = useState(0);
+
+  const nextSlide = () => {
+    setSlide(slide === data.length - 1 ? 0 : slide + 1);
+  };
+
+  const prevSlide = () => {
+    setSlide(slide === 0 ? data.length - 1 : slide - 1);
+  };
+
   return (
-    <div className='flex justify-center items-center relative'>
-       <BsArrowLeftCircleFill className=' w-8 h-8 decoration-white left-4 cursor-pointer' onClick={prevSlide}/>
-        { data.map((item,idx) => {
-            return <img src={item.src} alt={item.alt} keys={idx} className={slide === idx ? "slide" : "slide slide-hidden" }/>
+    <div className="carousel">
+      <BsArrowLeftCircleFill onClick={prevSlide} className="arrow arrow-left" />
+      {data.map((item, idx) => {
+        return (
+          <img
+            src={item.src}
+            alt={item.alt}
+            key={idx}
+            className={slide === idx ? "slide" : "slide slide-hidden"}
+          />
+        );
+      })}
+      <BsArrowRightCircleFill
+        onClick={nextSlide}
+        className="arrow arrow-right"
+      />
+      <span className="indicators">
+        {data.map((_, idx) => {
+          return (
+            <button
+              key={idx}
+              className={
+                slide === idx ? "indicator" : "indicator indicator-inactive"
+              }
+              onClick={() => setSlide(idx)}
+            ></button>
+          );
         })}
-        <BsArrowRightCircleFill className='w-8 h-8 decoration-white right-4 cursor-pointer' onClick={nextSlide}/>
-        <div className='flex absolute inset-y-4'> 
-          {data.map((_, idx) => {
-            return <button key={idx} onclick={() => setSlide(idx)} className={slide === idx ? "indicator" : "indicator indicator-inactive"}></button>
-          })}
-        </div>
+      </span>
     </div>
-  )
-}
+  );
+};
