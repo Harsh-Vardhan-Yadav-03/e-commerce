@@ -42,6 +42,7 @@ const Home = () => {
                 <img src={shirt} alt="" className='border-2 border-black bg-teal-600' />
                 <img src={shirt2} alt="" className='border-2 border-black bg-teal-600' />
             </div>
+            //footer
             <div className='  justify-cneter  bg-slate-600 h-2 w-full'></div>
             <div className='flex h-96 justify-center items-center gap-5 p-10 bg-yellow-500'>
                 <div>
@@ -50,7 +51,8 @@ const Home = () => {
                 <div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corporis quae eum eos in similique eveniet vel velit enim distinctio deserunt officiis totam, cupiditate at cum odio expedita, neque provident. Cumque perferendis dolorem quae velit alias doloribus quo provident officiis molestiae! Sapiente consequuntur non esse odio odit consequatur aperiam dolorem quibusdam molestiae dolore delectus optio, cupiditate ab praesentium. Totam dolores ratione ipsa error nemo, repudiandae iusto sequi dolorum esse maxime laborum eius voluptatem, architecto non alias eaque animi, tempora ipsum doloremque perspiciatis placeat corrupti dicta! Temporibus, expedita. Possimus excepturi maiores iste sunt laboriosam exercitationem autem. Architecto!
                 </div>
-            </div><br></br>             
+            </div>
+            <div className='  justify-cneter  bg-slate-600 h-2 w-full'></div>
 
 
 
