@@ -53,7 +53,7 @@ const Home = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corporis quae eum eos in similique eveniet vel velit enim distinctio deserunt officiis totam, cupiditate at cum odio expedita, neque provident. Cumque perferendis dolorem quae velit alias doloribus quo provident officiis molestiae! Sapiente consequuntur non esse odio odit consequatur aperiam dolorem quibusdam molestiae dolore delectus optio, cupiditate ab praesentium. Totam dolores ratione ipsa error nemo, repudiandae iusto sequi dolorum esse maxime laborum eius voluptatem, architecto non alias eaque animi, tempora ipsum doloremque perspiciatis placeat corrupti dicta! Temporibus, expedita. Possimus excepturi maiores iste sunt laboriosam exercitationem autem. Architecto!
                 </div>
             </div>
-            
+
             <div className=' grid grid-cols-6 m-10  mx-28 '>
                 <div className='flex flex-col'>
                     <a href="" className=' font-bold text-xl'>PRODUCTS</a>
@@ -108,19 +108,20 @@ const Home = () => {
                 </div>
                 <div>
                     <div className='font-bold text-xl'>FOLLOW US</div>
-                    <FaInstagramSquare className=' m-3 mx-0' />         
+                    <FaInstagramSquare className=' m-3 mx-0' />
                 </div>
-                <div className='bg-slate-800 w-[90vw] m-0'>
-                <div className='flex justify-center items-center text-white w-[90vw] gap-5'>
+            </div>
+            <div className='bg-slate-800 w-full '>
+                <div className='flex justify-center items-center text-white gap-5'>
                     <div>Privacy Policy   |</div>
                     <div>Terms and Conditions   |</div>
                     <div>Cookies</div>
                 </div>
                 <div className='text-white flex justify-center items-center'>
-                <FaRegCopyright />2024 alphaBeeta India Marketing Pvt. Ltd
-                </div>
+                    <FaRegCopyright />2024 alphaBeeta India Marketing Pvt. Ltd
                 </div>
             </div>
+
         </>
     )
 }
