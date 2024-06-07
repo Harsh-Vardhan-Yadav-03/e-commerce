@@ -1,9 +1,10 @@
 import React from 'react'
-import login from '../components/login' 
+import Login from '../Pages/Login' 
 import { FaSearch } from "react-icons/fa";
 import { IoPersonSharp } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
 import { TbAlphabetGreek } from "react-icons/tb";
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -11,13 +12,13 @@ const Navbar = () => {
         <>
             <nav className="h-22 bg-gradient-to-r from-cyan-500 to-blue-500">
                 <div className=" flex justify-end gap-5 text-sm">
-                    <a href="help">help</a>
+                    <Link to="help">help</Link>
 
-                    <a href="oreder">order and returns</a>
+                    <Link to="oreder">order and returns</Link>
 
-                    <a href="">sign up</a>
+                    <Link to="">sign up</Link>
 
-                    <a href="">log in</a>
+                    <Link to="/login">Login</Link>
 
                 </div>
 
