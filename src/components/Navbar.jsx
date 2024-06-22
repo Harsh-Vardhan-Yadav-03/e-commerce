@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
         <>
-            <nav className="h-22 bg-gradient-to-r from-cyan-500 to-blue-500">
+            <nav className="h-22 bg-gradient-to-r from-cyan-500 to-blue-500 sm: w-[192vw]">
                 <div className=" flex justify-end gap-5 text-sm">
                     <Link to="help">help</Link>
 

@@ -9,11 +9,13 @@ import { slides } from "../data/carouselData.json";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaRegCopyright } from "react-icons/fa";
 
+
+
 const Home = () => {
     return (
         <>
             <Navbar />
-            <div className="sec1 flex flex-col items-center border-2 border-blue-700 bg-blue-700">
+            <div className="sec1 flex flex-col items-center border-2 border-blue-700 bg-blue-700 sm: w-[192vw]">
                 <div className=" font-bold">
                     GET EXTRA 15% OFF ON EVERYTHING*
                 </div>
@@ -24,28 +26,28 @@ const Home = () => {
             <div className=" flex justify-center items-center ">
                 <Carousel data={slides} />
             </div>
-            <div className=" flex justify-center items-center font-bold text-5xl m-4">
+            <div className=" flex justify-center items-center font-bold text-5xl m-4 sm: w-[192vw]">
                 GET READY FOR THE SUMMER SALE
             </div>
-            <div className='flex h-72 w-auto gap-10 p-10 justify-center'>
+            <div className='flex h-72 w-auto gap-10 p-10 justify-center sm: w-[192vw]'>
                 <img src={shoes} alt="" className='' />
                 <img src={Shoes2} alt="" className='' />
                 <img src={shirt} alt="" className='border-2 border-black bg-teal-600' />
                 <img src={shirt2} alt="" className='border-2 border-black bg-teal-600' />
             </div>
 
-            <div className='font-bold text-4xl m-20 '>
+            <div className='font-bold text-4xl m-20 flex justify-center items-center sm: w-[192vw]'>
                 WHAT'S NEW
             </div>
 
-            <div className='flex h-72 w-auto gap-10 p-10 justify-center'>
+            <div className='flex h-72 w-auto gap-10 p-10 justify-center sm: w-[192vw]'>
                 <img src={shoes} alt="" className='' />
                 <img src={Shoes2} alt="" className='' />
                 <img src={shirt} alt="" className='border-2 border-black bg-teal-600' />
                 <img src={shirt2} alt="" className='border-2 border-black bg-teal-600' />
             </div>
-            <div className='  justify-cneter  bg-slate-600 h-2 w-full'></div>
-            <div className='flex h-96 justify-center items-center gap-5 p-10 bg-yellow-500'>
+            <div className='  justify-cneter  bg-slate-600 h-2 w-full sm: w-[192vw]'></div>
+            <div className='flex h-96 justify-center items-center gap-5 p-10 bg-yellow-500 sm: w-[192vw]'>
                 <div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corporis quae eum eos in similique eveniet vel velit enim distinctio deserunt officiis totam, cupiditate at cum odio expedita, neque provident. Cumque perferendis dolorem quae velit alias doloribus quo provident officiis molestiae! Sapiente consequuntur non esse odio odit consequatur aperiam dolorem quibusdam molestiae dolore delectus optio, cupiditate ab praesentium. Totam dolores ratione ipsa error nemo, repudiandae iusto sequi dolorum esse maxime laborum eius voluptatem, architecto non alias eaque animi, tempora ipsum doloremque perspiciatis placeat corrupti dicta! Temporibus, expedita. Possimus excepturi maiores iste sunt laboriosam exercitationem autem. Architecto!
                 </div>
