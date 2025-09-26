@@ -7,15 +7,3 @@
     background:green ;
 
 }
-
-
-  @media (min-width: 768px) {
-    .nav{max-width: 208px;
-    }
-  }
-
-  /* @media (min-width: 992px) {
-    max-width: 992px;
-  } */
-
-

@@ -23,7 +23,7 @@ export const Carousel = ({ data }) => {
             src={item.src}
             alt={item.alt}
             key={idx}
-            className={slide === idx ? "slide sm: w-[170vw]" : "slide slide-hidden"}
+            className={slide === idx ? "slide " : "slide slide-hidden"}
           />
         );
       })}
