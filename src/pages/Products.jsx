@@ -1,26 +1,60 @@
-function Products() {
-  const products = [
-    { id: 1, name: "Sneakers", price: "$59" },
-    { id: 2, name: "Running Shoes", price: "$75" },
-    { id: 3, name: "Sandals", price: "$35" },
-  ];
+import { useState } from 'react';
+import ProductCard from '@/components/ProductCard';
+import { products } from '@/data/products';
+import { Button } from '@/components/ui/button';
+
+const Products = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = ['All', 'Footwear', 'Clothing', 'Accessories'];
+
+  const filteredProducts = selectedCategory === 'All'
+    ? products
+    : products.filter((product) => product.category === selectedCategory);
 
   return (
-    <div className="p-8">
-      <h2 className="text-2xl font-bold mb-6">Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.map((p) => (
-          <div key={p.id} className="p-6 border rounded shadow hover:shadow-lg">
-            <h3 className="text-lg font-semibold">{p.name}</h3>
-            <p className="text-gray-600">{p.price}</p>
-            <button className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">
-              Add to Cart
-            </button>
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <div className="container mx-auto px-4 py-12">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
+          <p className="text-xl text-muted-foreground">
+            Discover our complete collection
+          </p>
+        </div>
+
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory(category)}
+              className="min-w-[120px]"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-xl text-muted-foreground">
+              No products found in this category
+            </p>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default Products;

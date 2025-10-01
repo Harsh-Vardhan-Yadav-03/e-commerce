@@ -1,91 +1,93 @@
-// import React from 'react'
-// import Login from '../Pages/Login'
-// import { FaSearch } from "react-icons/fa";
-// import { IoPersonSharp } from "react-icons/io5";
-// import { FiShoppingCart } from "react-icons/fi";
-// import { TbAlphabetGreek } from "react-icons/tb";
-// import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { ShoppingCart, Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useCart } from '@/contexts/CartContext';
+import { useState } from 'react';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { CartSheet } from './CartSheet';
 
-// const Navbar = () => {
-//     return (
-//         <>
-//             <nav className="h-22 bg-gradient-to-r from-cyan-500 to-blue-500 ">
-//                 <div className=" flex justify-end gap-5 text-sm">
-//                     <Link to="help">help</Link>
+const Navbar = () => {
+  const location = useLocation();
+  const { getCartItemsCount } = useCart();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const cartCount = getCartItemsCount();
 
-//                     <Link to="oreder">order and returns</Link>
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Products', path: '/products' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Support', path: '/support' },
+  ];
 
-//                     <Link to="">sign up</Link>
+  const isActive = (path) => location.pathname === path;
 
-//                     <Link to="/login">Login</Link>
-
-//                 </div>
-
-//                 <div className="headerBottom flex justify-between h-[80px]">
-
-//                     <TbAlphabetGreek className=' size-20 flex items-start' />
-
-//                     <div className="navgiation flex justify-center items-center">
-//                         <ul className=' flex justify-center gap-10'>
-//                             <li>
-//                                 <a href="">MEN</a>
-//                             </li>
-//                             <li>
-//                                 <a href="">WOMEN</a>
-//                             </li>
-//                             <li>
-//                                 <a href="">KIDS</a>
-//                             </li>
-//                             <li>
-//                                 <a href="">NEW</a>
-//                             </li>
-//                             <li>
-//                                 <a href="">SPORTS</a>
-//                             </li>
-//                             <li>
-//                                 <a href="">LIFESTYLE</a>
-//                             </li>
-//                             <li>
-//                                 <a className=" text-red-600"href="">OUTLET</a>
-//                             </li>
-//                         </ul>
-//                     </div>
-//                     <div className="auxilary flex items-center gap-2">
-//                         <div className=" border-2 border-black p-1 rounded-xl  flex justify-center items-center w-fit" >
-//                             <input type="text" placeholder='Search' className="border-none focus:border-none focus:outline-none h-9 bg-blue-500" />
-//                             <FaSearch className=' w-10' />
-//                         </div>
-//                         <button>
-//                             <IoPersonSharp />
-//                         </button>
-//                         <button>
-//                             <FiShoppingCart className=' w-10' />
-//                         </button>
-//                     </div>
-//                 </div>
-//             </nav>
-//         </>
-//     )
-// }
-
-// export default Navbar
-
-import { Link } from "react-router-dom";
-
-function Navbar() {
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">MyShop</h1>
-      <div className="flex gap-6">
-        <Link to="/" className="hover:text-yellow-400">Home</Link>
-        <Link to="/products" className="hover:text-yellow-400">Products</Link>
-        <Link to="/about" className="hover:text-yellow-400">About</Link>
-        <Link to="/contact" className="hover:text-yellow-400">Contact</Link>
-        <Link to="/support" className="hover:text-yellow-400">Support</Link>
+    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+            AlphaBeeta
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  isActive(link.path) ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Cart & Mobile Menu */}
+          <div className="flex items-center gap-2">
+            <CartSheet>
+              <Button variant="ghost" size="icon" className="relative">
+                <ShoppingCart className="h-5 w-5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+                    {cartCount}
+                  </span>
+                )}
+              </Button>
+            </CartSheet>
+
+            {/* Mobile Menu Button */}
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon">
+                  {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px]">
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`text-lg font-medium transition-colors hover:text-primary ${
+                        isActive(link.path) ? 'text-primary' : 'text-muted-foreground'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
-
