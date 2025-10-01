@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import ProductCard from '@/components/ProductCard';
-import { products } from '@/data/products';
+import ProductCard from '@/components/ProductCard.jsx';
+import { products } from '@/data/product.js';
 import heroBanner from '@/assets/hero-banner.jpg';
 import { ArrowRight, Truck, Shield, RotateCcw } from 'lucide-react';
 
